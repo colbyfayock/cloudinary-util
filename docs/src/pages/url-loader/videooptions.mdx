@@ -1,8 +1,7 @@
-import { videoOptionsSchema } from '@cloudinary-util/url-loader/dist/schema';
-import { zodToJsonSchema } from 'zod-to-json-schema';
+import { videoOptionsSchema } from "@cloudinary-util/url-loader/schema";
+import { zodToJsonSchema } from "zod-to-json-schema";
 
-import SchemaTable from '@/components/SchemaTable';
-
+import SchemaTable from "@/components/SchemaTable";
 
 # VideoOptions
 
@@ -10,4 +9,7 @@ The VideoOptions type is an extension of the [AssetOptions](/assetoptions) type,
 
 ## Properties
 
-<SchemaTable schema={zodToJsonSchema(videoOptionsSchema, 'videoOptions')} schemaKey="videoOptions" />
+<SchemaTable
+  schema={zodToJsonSchema(videoOptionsSchema, "videoOptions")}
+  schemaKey="videoOptions"
+/>

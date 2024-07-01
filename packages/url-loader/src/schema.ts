@@ -1,5 +1,4 @@
-export { constructUrlPropsSchema } from './lib/cloudinary';
-
-export { assetOptionsSchema } from './types/asset';
-export { imageOptionsSchema } from './types/image';
-export { videoOptionsSchema } from './types/video';
+export { constructUrlPropsSchema } from "./lib/cloudinary.js";
+export { assetOptionsSchema } from "./types/asset.js";
+export { imageOptionsSchema } from "./types/image.js";
+export { videoOptionsSchema } from "./types/video.js";

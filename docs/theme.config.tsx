@@ -1,15 +1,16 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import type { DocsThemeConfig } from "nextra-theme-docs";
+import React from "react";
 
 const config: DocsThemeConfig = {
   logo: <strong>Cloudinary Util</strong>,
   project: {
-    link: 'https://github.com/colbyfayock/cloudinary-util',
+    link: "https://github.com/colbyfayock/cloudinary-util",
   },
-  docsRepositoryBase: 'https://github.com/colbyfayock/cloudinary-util/tree/main/docs/',
+  docsRepositoryBase:
+    "https://github.com/colbyfayock/cloudinary-util/tree/main/docs/",
   footer: {
-    text: 'Colby Fayock',
+    text: "Colby Fayock",
   },
-}
+};
 
-export default config
+export default config;

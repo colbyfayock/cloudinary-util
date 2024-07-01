@@ -1,9 +1,7 @@
-import { z } from 'zod';
-
-import { PluginSettings } from '../types/plugins';
-
-import { effects as qualifiersEffects } from '../constants/qualifiers';
-import { constructTransformation } from '../lib/transformations';
+import { z } from "zod";
+import type { TransformationPlugin } from "../types/plugins.js";
+import { effects as qualifiersEffects } from "../constants/qualifiers.js";
+import { constructTransformation } from "../lib/transformations.js";
 
 const effectProps = {
   angle: qualifiersEffects.angle.schema.optional(),
@@ -55,60 +53,74 @@ const effectProps = {
   vectorize: qualifiersEffects.vectorize.schema.optional(),
   vibrance: qualifiersEffects.vibrance.schema.optional(),
   vignette: qualifiersEffects.vignette.schema.optional(),
-}
-
-export const props = {
-  effects: z.array(z.object(effectProps))
-    .describe(JSON.stringify({
-      text: 'Array of objects specifying transformations to be applied to asset.'
-    }))
-    .optional(),
-  ...effectProps
 };
 
-export const assetTypes = ['image', 'images', 'video', 'videos'];
+export const effectsProps = {
+  effects: z
+    .array(z.object(effectProps))
+    .describe(
+      JSON.stringify({
+        text: "Array of objects specifying transformations to be applied to asset.",
+      }),
+    )
+    .optional(),
+  ...effectProps,
+};
 
-export function plugin(props: PluginSettings) {
-  const { cldAsset, options } = props;
+export const effectsPlugin = {
+  props: effectsProps,
+  assetTypes: ["image", "images", "video", "videos"],
+  plugin: (settings) => {
+    const { cldAsset, options } = settings;
 
-  // Handle any top-level effect props
+    // Handle any top-level effect props
 
-  const transformationStrings = constructTransformationString({
-    effects: qualifiersEffects,
-    options
-  });
-
-  transformationStrings.filter(t => !!t).forEach(transformation => cldAsset.effect(transformation));;
-
-  // If we're passing in an effects prop explicitly, treat it as an array of
-  // effects that we need to process
-
-  if ( Array.isArray(options?.effects) ) {
-    options?.effects.forEach(effectsSet => {
-      const transformationString = constructTransformationString({
-        effects: qualifiersEffects,
-        options: effectsSet
-      }).filter(t => !!t).join(',');
-      cldAsset.effect(transformationString);
+    const transformationStrings = constructTransformationString({
+      effects: qualifiersEffects,
+      options,
     });
-  }
 
-  interface ConstructTransformationStringSettings {
-    effects: object;
-    options?: object;
-  }
+    transformationStrings
+      .filter((t) => !!t)
+      .forEach((transformation) => cldAsset.effect(transformation));
 
-  function constructTransformationString({ effects, options }: ConstructTransformationStringSettings) {
-    return (Object.keys(effects) as Array<keyof typeof effects>).map(key => {
-      const { prefix, qualifier, converters } = effects[key];
-      return constructTransformation({
-        qualifier,
-        prefix,
-        value: options?.[key],
-        converters
+    // If we're passing in an effects prop explicitly, treat it as an array of
+    // effects that we need to process
+
+    if (Array.isArray(options?.effects)) {
+      options?.effects.forEach((effectsSet) => {
+        const transformationString = constructTransformationString({
+          effects: qualifiersEffects,
+          options: effectsSet,
+        })
+          .filter((t) => !!t)
+          .join(",");
+        cldAsset.effect(transformationString);
       });
-    })
-  }
+    }
 
-  return {};
-}
+    interface ConstructTransformationStringSettings {
+      effects: object;
+      options?: object;
+    }
+
+    function constructTransformationString({
+      effects,
+      options,
+    }: ConstructTransformationStringSettings) {
+      return (Object.keys(effects) as Array<keyof typeof effects>).map(
+        (key) => {
+          const { prefix, qualifier, converters } = effects[key];
+          return constructTransformation({
+            qualifier,
+            prefix,
+            value: options?.[key],
+            converters,
+          });
+        },
+      );
+    }
+
+    return {};
+  },
+} satisfies TransformationPlugin;

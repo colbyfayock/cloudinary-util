@@ -1,8 +1,7 @@
-import { assetOptionsSchema } from '@cloudinary-util/url-loader/dist/schema';
-import { zodToJsonSchema } from 'zod-to-json-schema';
+import { assetOptionsSchema } from "@cloudinary-util/url-loader/schema";
+import { zodToJsonSchema } from "zod-to-json-schema";
 
-import SchemaTable from '@/components/SchemaTable';
-
+import SchemaTable from "@/components/SchemaTable";
 
 # AssetOptions
 
@@ -12,4 +11,7 @@ The majority of options are defined as part of this core set, but a few type-spe
 
 ## Properties
 
-<SchemaTable schema={zodToJsonSchema(assetOptionsSchema, 'assetOptions')} schemaKey="assetOptions" />
+<SchemaTable
+  schema={zodToJsonSchema(assetOptionsSchema, "assetOptions")}
+  schemaKey="assetOptions"
+/>

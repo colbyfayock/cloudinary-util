@@ -1,6 +1,9 @@
-export { parseUrl, getPublicId, getTransformations, getFormat } from './lib/cloudinary';
-export type { ParseUrl } from './lib/cloudinary';
-
-export { testColorIsHex, convertColorHexToRgb } from './lib/colors';
-
-export { encodeBase64, objectHasKey, sortByKey } from './lib/util';
+export {
+  getFormat,
+  getPublicId,
+  getTransformations,
+  parseUrl,
+} from "./lib/cloudinary.js";
+export type { ParseUrl } from "./lib/cloudinary.js";
+export { convertColorHexToRgb, testColorIsHex } from "./lib/colors.js";
+export { encodeBase64, objectHasKey, sortByKey } from "./lib/util.js";

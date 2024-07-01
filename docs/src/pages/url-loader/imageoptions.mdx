@@ -1,8 +1,7 @@
-import { imageOptionsSchema } from '@cloudinary-util/url-loader/dist/schema';
-import { zodToJsonSchema } from 'zod-to-json-schema';
+import { imageOptionsSchema } from "@cloudinary-util/url-loader/schema";
+import { zodToJsonSchema } from "zod-to-json-schema";
 
-import SchemaTable from '@/components/SchemaTable';
-
+import SchemaTable from "@/components/SchemaTable";
 
 # ImageOptions
 
@@ -10,4 +9,7 @@ The ImageOptions type is an extension of the [AssetOptions](/assetoptions) type,
 
 ## Properties
 
-<SchemaTable schema={zodToJsonSchema(imageOptionsSchema, 'imageOptions')} schemaKey="imageOptions" />
+<SchemaTable
+  schema={zodToJsonSchema(imageOptionsSchema, "imageOptions")}
+  schemaKey="imageOptions"
+/>

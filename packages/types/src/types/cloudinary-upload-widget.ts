@@ -8,12 +8,12 @@ export interface CloudinaryUploadWidgetOptions {
   encryption?: {
     key: string;
     iv: string;
-  }
+  };
   defaultSource?: string;
   maxFiles?: number;
   multiple?: boolean;
   sources?: Array<
-    "camera"
+    | "camera"
     | "dropbox"
     | "facebook"
     | "gettyimages"
@@ -115,7 +115,7 @@ export interface CloudinaryUploadWidgetResults {
 }
 
 export interface CloudinaryUploadWidgetInfo {
-  access_mode: 'public' | 'authenticated';
+  access_mode: "public" | "authenticated";
   api_key: string;
   asset_id: string;
   batchId: string;
@@ -134,12 +134,12 @@ export interface CloudinaryUploadWidgetInfo {
   path: string;
   placeholder: boolean;
   public_id: string;
-  resource_type: 'image' | 'raw' | 'video' | 'auto';
+  resource_type: "image" | "raw" | "video" | "auto";
   secure_url: string;
   signature: string;
   tags: string[];
   thumbnail_url: string;
-  type: 'upload' | 'private' | 'authenticated';
+  type: "upload" | "private" | "authenticated";
   url: string;
   version: number;
   width: number;
@@ -150,56 +150,68 @@ export interface CloudinaryUploadWidgetInfo {
 
 export interface CloudinaryUploadWidgetInstanceMethods {
   close: (options?: CloudinaryUploadWidgetInstanceMethodCloseOptions) => void;
-  destroy: (options?: CloudinaryUploadWidgetInstanceMethodDestroyOptions) => Promise<void>;
+  destroy: (
+    options?: CloudinaryUploadWidgetInstanceMethodDestroyOptions
+  ) => Promise<void>;
   hide: () => void;
   isDestroyed: () => boolean;
   isMinimized: () => boolean;
   isShowing: () => boolean;
   minimize: () => void;
-  open: (widgetSource?: CloudinaryUploadWidgetSources, options?: CloudinaryUploadWidgetInstanceMethodOpenOptions) => void;
+  open: (
+    widgetSource?: CloudinaryUploadWidgetSources,
+    options?: CloudinaryUploadWidgetInstanceMethodOpenOptions
+  ) => void;
   show: () => void;
   update: (options: CloudinaryUploadWidgetInstanceMethodUpdateOptions) => void;
 }
 
 export type CloudinaryUploadWidgetInstanceMethodCloseOptions = {
   quiet: boolean;
-}
+};
 
 export type CloudinaryUploadWidgetInstanceMethodDestroyOptions = {
   removeThumbnails: boolean;
-}
+};
 
 export type CloudinaryUploadWidgetInstanceMethodOpenOptions = {
   files: CustomURL[];
-}
+};
 
 export type CloudinaryUploadWidgetInstanceMethodUpdateOptions = Omit<
   CloudinaryUploadWidgetOptions,
-  "secure" | "uploadSignature" | "getTags" | "preBatch" | "inlineContainer" | "fieldName"
+  | "secure"
+  | "uploadSignature"
+  | "getTags"
+  | "preBatch"
+  | "inlineContainer"
+  | "fieldName"
 > & {
   cloudName: string;
   uploadPreset: string;
-}
+};
 
 export type CloudinaryUploadWidgetSources =
-  | 'local'
-  | 'url'
-  | 'camera'
-  | 'image_search'
-  | 'google_drive'
-  | 'dropbox'
-  | 'facebook'
-  | 'instagram'
-  | 'shutterstock'
-  | 'getty'
-  | 'istock'
-  | 'unsplash'
+  | "local"
+  | "url"
+  | "camera"
+  | "image_search"
+  | "google_drive"
+  | "dropbox"
+  | "facebook"
+  | "instagram"
+  | "shutterstock"
+  | "getty"
+  | "istock"
+  | "unsplash"
   | null;
 
 // Errors
 
-export type CloudinaryUploadWidgetError = {
-  status: string;
-  statusText: string;
-} | string | null;
-
+export type CloudinaryUploadWidgetError =
+  | {
+      status: string;
+      statusText: string;
+    }
+  | string
+  | null;

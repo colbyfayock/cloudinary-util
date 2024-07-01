@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { BsArrowsExpand, BsArrowsCollapse } from 'react-icons/bs'
+import { useState } from "react";
+import { BsArrowsCollapse, BsArrowsExpand } from "react-icons/bs";
 
-import styles from './CodeBlock.module.scss';
+import styles from "./CodeBlock.module.scss";
 
 export const CodeBlock = ({ children }) => {
   const [expanded, setExpanded] = useState(false);
-  
+
   return (
     <div className={styles.codeBlock}>
       <div className={styles.codeBlockCode} data-codeblock-expanded={expanded}>
-        { children }
+        {children}
       </div>
       <ul className={styles.codeBlockActions}>
         {!expanded && (

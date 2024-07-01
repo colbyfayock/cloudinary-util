@@ -1,0 +1,16 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": [
+    "editor.formatOnSave",
+    "source.fixAll.eslint",
+    "source.sortImports"
+  ],
+  "eslint.codeActionsOnSave.rules": [
+    "@typescript-eslint/consistent-type-imports",
+    "import/no-duplicates",
+    "@typescript-eslint/no-import-type-side-effects"
+  ],
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.preferences.autoImportFileExcludePatterns": ["dist"],
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
+}

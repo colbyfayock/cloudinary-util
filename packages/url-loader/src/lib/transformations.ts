@@ -1,4 +1,4 @@
-import { QualiferConverters } from "../types/qualifiers";
+import type { QualiferConverters } from "../types/qualifiers.js";
 
 /**
  * constructTransformation
@@ -13,26 +13,34 @@ interface ConstructTransformationSettings {
   converters?: Array<QualiferConverters>;
 }
 
-export function constructTransformation({ prefix, qualifier, value, converters }: ConstructTransformationSettings) {
-  let transformation = '';
+export function constructTransformation({
+  prefix,
+  qualifier,
+  value,
+  converters,
+}: ConstructTransformationSettings) {
+  let transformation = "";
 
-  if ( prefix ) {
+  if (prefix) {
     transformation = `${prefix}_`;
   }
 
   let transformationValue = value;
 
   converters?.forEach(({ test, convert }) => {
-    if ( !test(transformationValue) ) return;
+    if (!test(transformationValue)) return;
     transformationValue = convert(transformationValue);
-  })
+  });
 
-  if ( transformationValue === true || transformationValue === 'true' ) {
+  if (transformationValue === true || transformationValue === "true") {
     return `${transformation}${qualifier}`;
   }
 
-  if ( typeof transformationValue === 'string' || typeof transformationValue === 'number' ) {
-    if ( prefix ) {
+  if (
+    typeof transformationValue === "string" ||
+    typeof transformationValue === "number"
+  ) {
+    if (prefix) {
       return `${transformation}${qualifier}:${transformationValue}`;
     } else {
       return `${qualifier}_${transformationValue}`;
@@ -40,13 +48,12 @@ export function constructTransformation({ prefix, qualifier, value, converters }
   }
 }
 
-
 /**
  * promptArrayToString
  */
 
 export function promptArrayToString(promptArray: Array<string>) {
-  return `(${promptArray.join(';')})`;
+  return `(${promptArray.join(";")})`;
 }
 
 /**
@@ -55,6 +62,6 @@ export function promptArrayToString(promptArray: Array<string>) {
  */
 
 export function normalizeNumberParameter(param: number | string | undefined) {
-  if ( typeof param !== 'string' ) return param;
-  return parseInt(param)
+  if (typeof param !== "string") return param;
+  return parseInt(param);
 }

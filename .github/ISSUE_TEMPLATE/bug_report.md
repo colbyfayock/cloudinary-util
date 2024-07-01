@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: '[Bug] '
-labels: 'Type: Bug'
+title: "[Bug] "
+labels: "Type: Bug"
 ---
 
 # **Bug Report**
@@ -37,7 +37,6 @@ labels: 'Type: Bug'
 
 <!-- If applicable, add screenshots or videos to help explain your problem. -->
 
-
 ### **Your environment**
 
 <!-- use all the applicable bulleted list element for this specific issue,
@@ -47,7 +46,6 @@ and remove all the bulleted list elements that are not relevant for this issue. 
 - Node version:
 - Npm version:
 - Browser name and version:
-
 
 ## **Additional context**
 

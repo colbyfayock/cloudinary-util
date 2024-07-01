@@ -1,1 +1,1 @@
-export { default } from './SchemaTable';
+export { default } from "./SchemaTable";

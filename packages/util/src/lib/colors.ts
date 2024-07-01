@@ -2,9 +2,9 @@
  * testColorIsHex
  */
 
-export function testColorIsHex(value: any) {
-  if ( typeof value !== 'string' ) return false
-  return !!value.startsWith('#');
+export function testColorIsHex(value: unknown) {
+  if (typeof value !== "string") return false;
+  return !!value.startsWith("#");
 }
 
 /**
@@ -12,5 +12,5 @@ export function testColorIsHex(value: any) {
  */
 
 export function convertColorHexToRgb(value: string) {
-  return `rgb:${value.replace('#', '')}`;
+  return `rgb:${value.replace("#", "")}`;
 }

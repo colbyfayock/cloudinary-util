@@ -1,19 +1,22 @@
-
 /**
  * sortByKey
  * @description Sort the given array by the key of an object
  */
 
-export function sortByKey(array: Array<object> = [], key: string, type: string = 'asc') {
-  function compare(a: any, b: any) {
+export function sortByKey(
+  array: Array<object> = [],
+  key: string,
+  type: string = "asc"
+) {
+  function compare(a: object, b: object) {
     let keyA = a[key];
     let keyB = b[key];
 
-    if (typeof keyA === 'string') {
+    if (typeof keyA === "string") {
       keyA = keyA.toLowerCase();
     }
 
-    if (typeof keyB === 'string') {
+    if (typeof keyB === "string") {
       keyB = keyB.toLowerCase();
     }
 
@@ -30,11 +33,11 @@ export function sortByKey(array: Array<object> = [], key: string, type: string =
 
   let newArray = [...array];
 
-  if (typeof key !== 'string') return newArray;
+  if (typeof key !== "string") return newArray;
 
   newArray = newArray.sort(compare);
 
-  if (type === 'desc') {
+  if (type === "desc") {
     return newArray.reverse();
   }
 

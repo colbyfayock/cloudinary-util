@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ES2022",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "declaration": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "stripInternal": true,
+    "paths": {
+      "@cloudinary-util/types": ["./packages/types/src/index.ts"],
+      "@cloudinary-util/url-loader": ["./packages/url-loader/src/index.ts"],
+      "@cloudinary-util/url-loader/schema": [
+        "./packages/url-loader/src/schema.ts"
+      ],
+      "@cloudinary-util/util": ["./packages/util/src/index.ts"]
+    }
+  },
+  "exclude": ["**/out", "**/node_modules", "./docs"]
+}

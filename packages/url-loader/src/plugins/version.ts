@@ -1,30 +1,30 @@
-import { z } from 'zod';
+import { z } from "zod";
+import type { TransformationPlugin } from "../types/plugins.js";
 
-import { PluginSettings } from '../types/plugins';
-
-export const props = {
-  version: z.union([
-      z.number(),
-      z.string()
-    ])
-    .describe(JSON.stringify({
-      text: 'Custom version number to apply to asset URL.',
-      url: 'https://cloudinary.com/documentation/advanced_url_delivery_options#asset_versions'
-    }))
-    .optional()
+export const versionProps = {
+  version: z
+    .union([z.number(), z.string()])
+    .describe(
+      JSON.stringify({
+        text: "Custom version number to apply to asset URL.",
+        url: "https://cloudinary.com/documentation/advanced_url_delivery_options#asset_versions",
+      })
+    )
+    .optional(),
 };
 
-export const assetTypes = ['image', 'images', 'video', 'videos'];
+export const versionPlugin = {
+  props: versionProps,
+  assetTypes: ["image", "images", "video", "videos"],
+  plugin: ({ cldAsset, options }) => {
+    const { version } = options;
 
-export function plugin(props: PluginSettings) {
-  const { cldAsset, options } = props;
-  const { version } = options;
+    if (typeof version === "string" || typeof version === "number") {
+      // Replace a `v` in the string just in case the caller
+      // passes it in
+      cldAsset.setVersion(`${version}`.replace("v", ""));
+    }
 
-  if ( typeof version === 'string' || typeof version === 'number' ) {
-    // Replace a `v` in the string just in case the caller
-    // passes it in
-    cldAsset.setVersion(`${version}`.replace('v', ''));
-  }
-
-  return {};
-}
+    return {};
+  },
+} satisfies TransformationPlugin;

@@ -1,9 +1,15 @@
 {
   "name": "@cloudinary-util/util",
   "version": "3.0.2",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "sideEffects": false,
   "license": "MIT",
   "files": [
@@ -19,20 +25,7 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
-    "@cloudinary-util/tsconfig": "workspace:*",
-    "@colbyfayock/semantic-release-pnpm": "^1.0.7",
-    "@semantic-release/changelog": "^6.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@types/node": "^17.0.12",
-    "eslint": "^7.32.0",
-    "eslint-config-cloudinary-util": "workspace:*",
-    "semantic-release": "^20.1.0",
-    "semantic-release-monorepo": "^7.0.5",
-    "tsup": "^5.10.1",
-    "typescript": "^4.5.3",
-    "vitest": "^1.2.0"
+    "@types/node": "^17.0.12"
   },
   "publishConfig": {
     "access": "public"

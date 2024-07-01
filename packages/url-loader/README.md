@@ -22,19 +22,19 @@ The loader works by loading a list of "plugins" which provide option-based confi
 
 _The minimum node version officially supported is version 18._
 
-* Install Cloudinary URL Loader:
+- Install Cloudinary URL Loader:
 
 ```
 npm install @cloudinary-util/url-loader
 ```
 
-* Import the dependency:
+- Import the dependency:
 
 ```
 import { constructCloudinaryUrl } from '@cloudinary-util/url-loader';
 ```
 
-* Create a Cloudinary URL:
+- Create a Cloudinary URL:
 
 ```
 const url = constructCloudinaryUrl({

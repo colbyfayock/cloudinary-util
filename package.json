@@ -3,7 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --continue",
-    "lint": "turbo run lint",
+    "lint": "eslint --max-warnings=0 .",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "release": "turbo run build --filter=docs^... && turbo run semantic-release --concurrency=1",
@@ -11,10 +11,28 @@
     "test:packages": "turbo run build --filter='./packages/*' && turbo run test --filter='./packages/*'"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-cloudinary-util": "workspace:*",
-    "prettier": "^2.8.3",
-    "turbo": "^1.7.2"
+    "@arktype/fs": "^0.0.20",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.2",
+    "turbo": "^1.7.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-define-config": "^2.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-next": "^14.2.4",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "@colbyfayock/semantic-release-pnpm": "^1.0.7",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^20.1.0",
+    "semantic-release-monorepo": "^7.0.5",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "tsx": "^4.16.0"
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@9.1.4"
 }

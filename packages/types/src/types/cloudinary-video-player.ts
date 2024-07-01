@@ -1,5 +1,5 @@
 export interface CloudinaryVideoPlayer {
-  on: Function
+  on: Function;
 }
 
 export interface CloudinaryVideoPlayerOptionsLogo {
@@ -7,7 +7,8 @@ export interface CloudinaryVideoPlayerOptionsLogo {
   logoOnclickUrl?: string;
   showLogo?: boolean;
 }
-export interface CloudinaryVideoPlayerOptions extends CloudinaryVideoPlayerOptionsLogo {
+export interface CloudinaryVideoPlayerOptions
+  extends CloudinaryVideoPlayerOptionsLogo {
   width?: string | number;
   height?: string | number;
   aspectRatio?: string;
@@ -27,11 +28,11 @@ export interface CloudinaryVideoPlayerOptions extends CloudinaryVideoPlayerOptio
   fluid?: boolean;
   fontFace?: string;
   hideContextMenu?: boolean;
-  interactionAreas?: any; // Used "any" cause this fetaure is still in beta
-  playbackRates?: Array<any>;
+  interactionAreas?: unknown; // Used "any" cause this fetaure is still in beta
+  playbackRates?: Array<unknown>;
   playlistWidget?: {
     direction?: string;
-    total?: string
+    total?: string;
   };
   posterOptions?: CloudinaryVideoPlayerOptionPosterOptions;
   showJumpControls?: boolean;
@@ -44,11 +45,11 @@ export interface CloudinaryVideoPlayerOptions extends CloudinaryVideoPlayerOptio
   autoplayMode?: string;
   autoShowRecommendations?: boolean;
   loop?: boolean;
-  maxTries?: Number;
+  maxTries?: number;
   muted?: boolean;
   pictureInPictureToggle?: boolean;
   playedEventPercents?: number[];
-  playedEventTimes?: null | Array<any>;
+  playedEventTimes?: null | Array<unknown>;
   playsinline?: boolean;
   videoTimeout?: number;
   withCredentials?: boolean;
@@ -62,7 +63,7 @@ export interface CloudinaryVideoPlayerOptions extends CloudinaryVideoPlayerOptio
   sourceTypes?: Array<string>;
   transformation?: Array<object> | object;
 
- // ------------ Ads And Analytics Props ------------
+  // ------------ Ads And Analytics Props ------------
   ads?: {
     adTagUrl?: string;
     adsInPlaylist?: string;
@@ -73,7 +74,7 @@ export interface CloudinaryVideoPlayerOptions extends CloudinaryVideoPlayerOptio
     postrollTimeout?: number;
   };
   analytics?: boolean;
-  allowUsageReport?: Boolean;
+  allowUsageReport?: boolean;
 
   // ------------ Delivery ------------
   cloud_name?: string;
@@ -94,7 +95,6 @@ export interface CloudinaryVideoPlayerOptionsColors {
   base?: string;
   text?: string;
 }
-
 
 export interface CloudinaryVideoPlayerOptionPosterOptions {
   publicId: string;

@@ -1,20 +1,20 @@
 export type {
-  CloudinaryUploadWidgetOptions,
-  CloudinaryUploadWidgetResults,
+  CloudinaryUploadWidgetError,
   CloudinaryUploadWidgetInfo,
-  CloudinaryUploadWidgetInstanceMethods,
   CloudinaryUploadWidgetInstanceMethodCloseOptions,
   CloudinaryUploadWidgetInstanceMethodDestroyOptions,
   CloudinaryUploadWidgetInstanceMethodOpenOptions,
   CloudinaryUploadWidgetInstanceMethodUpdateOptions,
+  CloudinaryUploadWidgetInstanceMethods,
+  CloudinaryUploadWidgetOptions,
+  CloudinaryUploadWidgetResults,
   CloudinaryUploadWidgetSources,
-  CloudinaryUploadWidgetError
-} from './types/cloudinary-upload-widget';
+} from "./types/cloudinary-upload-widget.js";
 
-export type { 
+export type {
   CloudinaryVideoPlayer,
-  CloudinaryVideoPlayerOptionsLogo,
+  CloudinaryVideoPlayerOptionPosterOptions,
   CloudinaryVideoPlayerOptions,
   CloudinaryVideoPlayerOptionsColors,
-  CloudinaryVideoPlayerOptionPosterOptions
-} from './types/cloudinary-video-player';
+  CloudinaryVideoPlayerOptionsLogo,
+} from "./types/cloudinary-video-player.js";
